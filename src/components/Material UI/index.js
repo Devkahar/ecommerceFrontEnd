@@ -69,7 +69,7 @@ const MaterialButton = (props) => {
     }
   return (
     <div 
-    style={{ width: "90%", ...props.style}}>
+    style={{ width: "100%", ...props.style}}>
       <button className="materialButton"
       style={{
         backgroundColor: props.bgColor ,color: props.textColor

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateQty, getCartItems } from '../../actions/actions'
 import Layout from '../../components/Layout/Layout'
+import { MaterialButton } from '../../components/Material UI'
 import Card from '../../components/UI/Card/Card'
 import { generatePublicUrl } from '../../urlConfig'
 import CartItem from './CartItem'
 
 import "./CartPage.css"
-const CartPage = () => {
+const CartPage = (props) => {
     const cart = useSelector(state => state.cart);
     const auth = useSelector(state => state.auth);
     // const cartItems = cart.cartItems;
@@ -38,7 +39,7 @@ const CartPage = () => {
                 <Card
                     headerLeft={`My Cart`}
                     headerRight={<div>Deliver to</div>}
-
+                    style={{width: 'calc(100%-400px)', overflow: 'hidden'}}
                 >
                     {
                         cartItems &&
@@ -51,11 +52,23 @@ const CartPage = () => {
                          />
                         )
                     }
-                    
+                    <div style={{
+                        width: '100%',
+                        display: 'flex',
+                        backgroundColor: '#fff',
+                        justifyContent: 'flex-end',
+                        boxShadow: '0 0 10px 10px #eee',
+                        padding: '10px 0',
+                        boxSizing: 'border-box'
+                    }}>
+                        <div style={{width: '250px'}}>
+                            <MaterialButton title="PLACE ORDER" onClick={()=> props.history.push(`/checkout`) } />
+                        </div>
+                    </div>
                 </Card>
                 <Card 
                 style={{
-                    width: '500px',
+                    width: '380px',
                 }}
                 >Price</Card>
             </div>

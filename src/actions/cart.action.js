@@ -44,7 +44,7 @@ const getCartItems = ()=>{
       };
   
       if (auth.authenticate) {
-        dispatch({ type: cartConstants.ADD_TO_CART_REQUEST });
+        dispatch({ type: cartConstants.ADD_TO_CART__REQUEST });
         const payload = {
           // cartItems: Object.keys(cartItems).map((key, index) => {
           //     return {
