@@ -9,16 +9,14 @@ export const getAddress = ()=>{
                 type: userConstants.GET_USER_ADDRESS__REQUEST})
             const res = await axiosInstance.get('/user/getAddress');
             if(res.status === 200){
-                const {
-                    userAddress:{
-                        address
-                    }
-                } = res.data;
+                const address = res.data.userAddress.address;
+                console.log(address);
                 dispatch({
                     type: userConstants.GET_USER_ADDRESS__SUCCESS, payload: { address}
                 })
             }else{
                 const {error} = res.data;
+                console.log(res.data);
                 dispatch({
                     type: userConstants.GET_USER_ADDRESS__FAILURE,
                     payload: {error}

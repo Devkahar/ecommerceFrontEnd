@@ -10,11 +10,9 @@ const initState ={
 export default (state = initState,action) =>{
     switch (action.type) {
         case userConstants.GET_USER_ADDRESS__REQUEST:
-            return state={
-                state ={
-                    ...state,
-                    loading: true,
-                }
+            return state = {
+                ...state,
+                loading: true,
             }
         case userConstants.GET_USER_ADDRESS__SUCCESS:
             return state = {
@@ -30,10 +28,9 @@ export default (state = initState,action) =>{
             }
         case userConstants.ADD_USER_ADDRESS__REQUEST:
             return state={
-                state ={
+                
                     ...state,
                     loading: true,
-                }
             }
         case userConstants.ADD_USER_ADDRESS__SUCCESS:
             return state = {
