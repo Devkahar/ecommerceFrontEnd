@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateQty, getCartItems } from '../../actions/actions'
 import Layout from '../../components/Layout/Layout'
 import { MaterialButton } from '../../components/Material UI'
+import PriceDetails from '../../components/PriceDetails/PriceDetails'
 import Card from '../../components/UI/Card/Card'
 import { generatePublicUrl } from '../../urlConfig'
 import CartItem from './CartItem'
@@ -71,6 +72,15 @@ const CartPage = (props) => {
                     width: '380px',
                 }}
                 >Price</Card>
+                <PriceDetails
+                    totalItems={Object.keys(cart.cartItems).reduce((qty,key)=>{
+                        return qty + cart.cartItems[key].qty;
+                    },0)}
+                    totalPrice={Object.keys(cart.cartItems).reduce((totalPrice,key)=>{
+                        const {price, qty} = cart.cartItems[key];
+                        return totalPrice+ price* qty;
+                    },0)}
+                />
             </div>
             
         </Layout>
