@@ -30,18 +30,14 @@ export const getAddress = ()=>{
 export const addAddress = (payload)=>{
     return async dispatch =>{
         try {
-            dispatch({type: userConstants.ADD_USER_ADDRESS__REQUEST})
             const res = await axiosInstance.post('/user/address/create',{payload});
+            dispatch({type: userConstants.ADD_USER_ADDRESS__REQUEST})
             if(res.status === 201){
                 console.log(res);
-                // const {
-                //     userAddress:{
-                //         address
-                //     }
-                // } = res.data;
-                // dispatch({
-                //     type: userConstants.ADD_USER_ADDRESS__SUCCESS, payload: { address}
-                // })
+                const { address:{address}} = res.data;
+                dispatch({
+                    type: userConstants.ADD_USER_ADDRESS__SUCCESS, payload: { address}
+                })
             }else{
                 const {error} = res.data;
                 dispatch({

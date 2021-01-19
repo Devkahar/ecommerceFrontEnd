@@ -56,10 +56,11 @@ const AddressForm = (props) => {
         addressType,
       },
     };
-    console.log(payload);
     if (id) {
+      
       payload.address._id = id;
     }
+    console.log(payload);
     dispatch(addAddress(payload));
     setSubmitFlag(true);
   };

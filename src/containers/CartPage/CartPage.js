@@ -34,6 +34,23 @@ const CartPage = (props) => {
             dispatch(getCartItems());
         }
     },[auth])
+    if(props.onlyCartItems){
+        return(
+            <>
+                {
+                        cartItems &&
+                        Object.keys(cartItems).map((key,index)=>
+                        <CartItem
+                            key={index}
+                            cartItem={cartItems[key]}
+                            onQuantityInc={onQuantityIncrement}
+                            onQuantityDec={onQuantityDecrement}
+                         />
+                        )
+                    }
+            </>
+        )
+    }
     return (
         <Layout>
             <div className="cartContainer">

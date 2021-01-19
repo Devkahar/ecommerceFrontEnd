@@ -28,7 +28,6 @@ export default (state = initState,action) =>{
             }
         case userConstants.ADD_USER_ADDRESS__REQUEST:
             return state={
-                
                     ...state,
                     loading: true,
             }
