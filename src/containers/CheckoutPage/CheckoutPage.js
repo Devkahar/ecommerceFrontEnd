@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAddress, getCartItems } from "../../actions/actions";
+import { addOrder, getAddress, getCartItems } from "../../actions/actions";
 import Layout from "../../components/Layout/Layout";
 import { Anchor, MaterialButton, MaterialInput } from "../../components/Material UI";
 import PriceDetails from "../../components/PriceDetails/PriceDetails";
@@ -155,7 +155,7 @@ const CheckoutPage = (props) => {
     };
 
     console.log(payload);
-    //dispatch(addOrder(payload));
+    dispatch(addOrder(payload));
     setConfirmOrder(true);
   };
 

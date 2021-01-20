@@ -40,7 +40,7 @@ const CartPage = (props) => {
                 {
                         cartItems &&
                         Object.keys(cartItems).map((key,index)=>
-                        <CartItem
+                        <CartItem 
                             key={index}
                             cartItem={cartItems[key]}
                             onQuantityInc={onQuantityIncrement}
